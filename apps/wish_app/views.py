@@ -56,10 +56,10 @@ def delete(request, item_id):
     messages.success(request, "Item Deleted ")
     return redirect(reverse('wishlist:index'))
 
-def remove(request, itme_id):
+def remove(request, item_id):
     user = Person.objects.get(id=request.session['user_id'])
-    item = Product.objects.get(id= itme_id)
-    itme.group.remove(user)
+    item = Product.objects.get(id= item_id)
+    item.group.remove(user)
     messages.success(request, "Itme removed from your table")
     return redirect(reverse('wishlist:index'))
 
